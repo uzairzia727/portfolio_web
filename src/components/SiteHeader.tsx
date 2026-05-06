@@ -41,7 +41,7 @@ export function SiteHeader() {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-ink/60 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <Link href="#home" className="font-display text-lg tracking-tight text-mist focus:outline-none">
-            UZ<span className="text-accent">.</span>
+            UZAIR<span className="text-accent">.</span>
           </Link>
 
           {/* Desktop Navigation - Simplified Projects */}
