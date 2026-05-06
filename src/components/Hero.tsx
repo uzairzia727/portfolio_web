@@ -20,9 +20,12 @@ export function Hero() {
   }, []);
 
   return (
-    <div ref={root} className="grid flex-1 items-center gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(260px,0.92fr)] lg:gap-16">
-      {/* 1. Text Section: Appears first on mobile and left on desktop */}
-      <div className="space-y-6 sm:space-y-7">
+    <div 
+      ref={root} 
+      className="grid flex-1 items-start gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(260px,0.92fr)] lg:items-center lg:gap-16"
+    >
+      {/* --- BLOCK 1: NAME & CHIP (Top on Mobile, Left on Desktop) --- */}
+      <div className="space-y-6 lg:col-start-1">
         <p className="hero-chip inline-flex max-w-[100vw] flex-wrap items-center rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-accent sm:px-4 sm:text-[11px] sm:tracking-[0.28em]">
           Computer Engineer · AI / ML
         </p>
@@ -35,7 +38,28 @@ export function Hero() {
             <span className="block bg-gradient-to-r from-mist via-accent to-accent-muted bg-clip-text text-transparent">Uzair Zia</span>
           </div>
         </div>
+      </div>
 
+      {/* --- BLOCK 2: PORTRAIT (Middle on Mobile, Right on Desktop) --- */}
+      <div className="relative mx-auto w-full max-w-[min(100%,380px)] sm:max-w-md lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:max-w-none">
+        <div className="pointer-events-none absolute inset-[-18%] -z-10 rounded-[40px] bg-gradient-to-tr from-accent/25 via-accent-deep/10 to-transparent blur-3xl" />
+        <div className="hero-portrait relative overflow-visible">
+          <div className="hero-mask mx-auto aspect-[4/5] w-full max-w-[420px]">
+            <Image
+              src="/portrait.png"
+              alt="Muhammad Uzair Zia"
+              width={840}
+              height={1050}
+              priority
+              className="h-full w-full object-cover object-[50%_12%]"
+            />
+          </div>
+          <div className="pointer-events-none absolute -bottom-6 left-8 right-8 h-28 rounded-[32px] bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+        </div>
+      </div>
+
+      {/* --- BLOCK 3: BIO & LINKS (Bottom on Mobile, Left on Desktop) --- */}
+      <div className="space-y-7 lg:col-start-1">
         <p className="hero-sub max-w-xl text-[15px] leading-relaxed text-mist/75 sm:text-base lg:text-lg">
           Building end-to-end AI systems with LLM pipelines, agentic RAG, intelligent automation, and full-stack web solutions.
           Currently exploring multi-agent GPT orchestration to solve problems humans can&apos;t tackle alone.
@@ -96,24 +120,6 @@ export function Hero() {
             </dd>
           </div>
         </dl>
-      </div>
-
-      {/* 2. Photo Section: Removed "order-first" so it stays below the text on mobile */}
-      <div className="relative mx-auto w-full max-w-[min(100%,380px)] sm:max-w-md lg:mx-0 lg:max-w-none">
-        <div className="pointer-events-none absolute inset-[-18%] -z-10 rounded-[40px] bg-gradient-to-tr from-accent/25 via-accent-deep/10 to-transparent blur-3xl" />
-        <div className="hero-portrait relative overflow-visible">
-          <div className="hero-mask mx-auto aspect-[4/5] w-full max-w-[420px]">
-            <Image
-              src="/portrait.png"
-              alt="Muhammad Uzair Zia"
-              width={840}
-              height={1050}
-              priority
-              className="h-full w-full object-cover object-[50%_12%]"
-            />
-          </div>
-          <div className="pointer-events-none absolute -bottom-6 left-8 right-8 h-28 rounded-[32px] bg-gradient-to-t from-ink via-ink/50 to-transparent" />
-        </div>
       </div>
     </div>
   );
