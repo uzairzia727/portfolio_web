@@ -21,6 +21,7 @@ export function Hero() {
 
   return (
     <div ref={root} className="grid flex-1 items-center gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(260px,0.92fr)] lg:gap-16">
+      {/* 1. Text Section: Appears first on mobile and left on desktop */}
       <div className="space-y-6 sm:space-y-7">
         <p className="hero-chip inline-flex max-w-[100vw] flex-wrap items-center rounded-full border border-accent/35 bg-accent/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-accent sm:px-4 sm:text-[11px] sm:tracking-[0.28em]">
           Computer Engineer · AI / ML
@@ -97,7 +98,8 @@ export function Hero() {
         </dl>
       </div>
 
-      <div className="relative order-first mx-auto w-full max-w-[min(100%,380px)] sm:max-w-md lg:order-none lg:mx-0 lg:max-w-none">
+      {/* 2. Photo Section: Removed "order-first" so it stays below the text on mobile */}
+      <div className="relative mx-auto w-full max-w-[min(100%,380px)] sm:max-w-md lg:mx-0 lg:max-w-none">
         <div className="pointer-events-none absolute inset-[-18%] -z-10 rounded-[40px] bg-gradient-to-tr from-accent/25 via-accent-deep/10 to-transparent blur-3xl" />
         <div className="hero-portrait relative overflow-visible">
           <div className="hero-mask mx-auto aspect-[4/5] w-full max-w-[420px]">
