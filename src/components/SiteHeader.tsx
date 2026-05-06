@@ -88,61 +88,68 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
-      {open ? (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div ref={overlay} className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={close} aria-hidden />
-          <div
-            ref={sheet}
-            className="absolute inset-x-0 bottom-0 max-h-[88dvh] rounded-t-3xl border border-white/12 bg-ink/95 p-6 shadow-[0_-18px_60px_rgba(0,0,0,0.65)] backdrop-blur-2xl"
-            role="dialog"
-            aria-modal="true"
+{/* Mobile Menu Drawer */}
+{open ? (
+  <div className="fixed inset-0 z-50 lg:hidden">
+    {/* Optimized Overlay: Lower blur and hardware acceleration */}
+    <div 
+      ref={overlay} 
+      className="absolute inset-0 bg-black/60 backdrop-blur-[4px] will-change-[opacity]" 
+      onClick={close} 
+      aria-hidden 
+    />
+    
+    <div
+      ref={sheet}
+      className="absolute inset-x-0 bottom-0 max-h-[88dvh] rounded-t-[2.5rem] border-t border-white/10 bg-ink/98 p-8 shadow-2xl will-change-transform"
+      style={{ transform: 'translateZ(0)' }} // Forces GPU rendering
+      role="dialog"
+      aria-modal="true"
+    >
+      <div className="mb-8 flex items-center justify-between">
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-mist/40">Navigation</p>
+        <button
+          type="button"
+          className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-mist active:scale-95 transition-transform focus:outline-none"
+          onClick={close}
+        >
+          <X className="h-6 w-6" />
+        </button>
+      </div>
+      
+      <div className="flex flex-col gap-1 text-lg font-medium text-mist">
+        {["home", "about", "projects", "experience"].map((item) => (
+          <Link 
+            key={item}
+            href={`#${item}`} 
+            onClick={close} 
+            className="rounded-2xl px-4 py-4 capitalize active:bg-white/5 focus:outline-none"
           >
-            <div className="mb-4 flex items-center justify-between">
-              <p className="text-sm font-semibold text-mist">Navigate</p>
-              <button
-                type="button"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/12 bg-white/5 focus:outline-none"
-                onClick={close}
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            
-            <div className="flex flex-col gap-2 text-sm text-mist/80">
-              <Link href="#home" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5 focus:outline-none">
-                Home
-              </Link>
-              <Link href="#about" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5 focus:outline-none">
-                About
-              </Link>
-              <Link href="#projects" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5 focus:outline-none">
-                Projects
-              </Link>
-              <Link href="#experience" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5 focus:outline-none">
-                Experience
-              </Link>
-              <a
-                href="https://github.com/uzairzia727"
-                onClick={close}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="rounded-xl px-3 py-3 hover:bg-white/5 focus:outline-none"
-              >
-                GitHub
-              </a>
-              
-              <a
-                href="/cv.pdf"
-                download="Muhammad_Uzair_Zia_CV.pdf"
-                className="cv-glow mt-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-accent to-accent-muted px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink focus:outline-none"
-              >
-                Download CV
-              </a>
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </>
+            {item}
+          </Link>
+        ))}
+        <a
+          href="https://github.com/uzairzia727"
+          onClick={close}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="rounded-2xl px-4 py-4 active:bg-white/5 focus:outline-none"
+        >
+          GitHub
+        </a>
+        
+        <a
+          href="/cv.pdf"
+          download="Muhammad_Uzair_Zia_CV.pdf"
+          className="mt-6 flex items-center justify-center rounded-full bg-accent py-4 text-xs font-bold uppercase tracking-[0.2em] text-ink shadow-lg shadow-accent/20 active:scale-[0.98] transition-transform focus:outline-none"
+        >
+          Download CV
+        </a>
+      </div>
+    </div>
+  </div>
+) : null}
+
+</>
   );
 }
