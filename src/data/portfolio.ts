@@ -29,8 +29,8 @@ export const experiences: ExperienceItem[] = [
     id: "freelance",
     title: "Freelance Developer & AI Automation Specialist",
     company: "Independent, remote",
-    meta: "Active · 2023-Present",
-    duration: "2023-Present",
+    meta: "Active · 2025-Present",
+    duration: "2025-Present",
     bullets: [
       "Shopify store Toyz for Kids (toyzforkids.com): theme and UX work, collection-led merchandising, and checkout tuned for families buying toys and gifts.",
       "WordPress builds for telecom clients a3technologies.co.uk and ocs7.com, plus ai-technologies.co.uk for professional positioning and lead capture.",
@@ -42,8 +42,8 @@ export const experiences: ExperienceItem[] = [
     id: "data-analyst",
     title: "Data Analyst",
     company: "ConnectX (Technoligent) · Islamabad",
-    meta: "Mar 2023-Sep 2023",
-    duration: "Mar 2023-Sep 2023",
+    meta: "Apr 2025-Sep 2025",
+    duration: "Apr 2025-Sep 2025",
     bullets: [
       "Built dynamic inventory tracking in Excel with full ETL-style pipelines.",
       "Implemented cleaning, transformation, and validation workflows.",
@@ -55,8 +55,8 @@ export const experiences: ExperienceItem[] = [
     id: "innovo",
     title: "Operations Executive / Development",
     company: "Innovo Xpress · Islamabad",
-    meta: "Project-based · ~1 mo · 2023",
-    duration: "2023",
+    meta: "Project-based · ~1 mo · 2026",
+    duration: "2026",
     bullets: [
       "Audited logistics workflows, documented bottlenecks, and proposed automation paths.",
       "Delivered workflow prototypes and automated internal sheets with Google Apps Script.",
