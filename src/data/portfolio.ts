@@ -130,7 +130,7 @@ export const projects: ProjectItem[] = [
     id: "lead-enrich",
     number: "01",
     title: "Lead Enrichment Tool",
-    subtitle: "NRW · 2023",
+    subtitle: "NEW · 2026",
     description:
       "API-powered enrichment from multiple sources with voice output (ElevenLabs), Gmail integration, Grok AI, and Facebook API, orchestrated into spreadsheet workflows.",
     tech: ["SERP API", "ElevenLabs", "Gmail API", "Grok", "Facebook API"],
