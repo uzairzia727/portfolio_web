@@ -5,15 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
 
-const projectLinks = [
-  { label: "AI / ML", href: "#projects-aiml" },
-  { label: "Automations", href: "#projects-automation" },
-  { label: "SQL / Databases", href: "#projects-sql" },
-  { label: "Shopify", href: "#projects-shopify" },
-  { label: "WordPress", href: "#projects-wordpress" },
-  { label: "Hardware", href: "#projects-hardware" },
-];
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const sheet = useRef<HTMLDivElement>(null);
@@ -48,6 +39,7 @@ export function SiteHeader() {
             UZ<span className="text-accent">.</span>
           </Link>
 
+          {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 text-sm text-mist/70 lg:flex" aria-label="Primary">
             <Link className="transition hover:text-mist" href="#home">
               Home
@@ -55,39 +47,10 @@ export function SiteHeader() {
             <Link className="transition hover:text-mist" href="#about">
               About
             </Link>
-
-            <div className="group relative">
-              <button
-                type="button"
-                className="inline-flex items-center gap-1 transition hover:text-mist"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Projects
-                <span className="text-[10px] text-mist/40">▾</span>
-              </button>
-              <div className="pointer-events-none absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 translate-y-3 scale-95 rounded-2xl border border-white/12 bg-ink/90 p-3 opacity-0 shadow-2xl shadow-black/60 backdrop-blur-2xl transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-2 group-focus-within:scale-100 group-focus-within:opacity-100">
-                <p className="px-2 pb-2 text-[10px] uppercase tracking-[0.22em] text-mist/40">Jump to category</p>
-                <div className="flex flex-col gap-1">
-                  <Link
-                    href="#projects"
-                    className="rounded-xl px-3 py-2 text-xs text-mist/70 transition hover:bg-white/5 hover:text-mist"
-                  >
-                    All projects
-                  </Link>
-                  {projectLinks.map((l) => (
-                    <Link
-                      key={l.href}
-                      href={l.href}
-                      className="rounded-xl px-3 py-2 text-xs text-mist/70 transition hover:bg-white/5 hover:text-mist"
-                    >
-                      {l.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
+            {/* Simplified Projects Link */}
+            <Link className="transition hover:text-mist" href="#projects">
+              Projects
+            </Link>
             <Link className="transition hover:text-mist" href="#experience">
               Experience
             </Link>
@@ -121,6 +84,7 @@ export function SiteHeader() {
         </div>
       </header>
 
+      {/* Mobile Menu */}
       {open ? (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div ref={overlay} className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={close} aria-hidden />
@@ -135,7 +99,6 @@ export function SiteHeader() {
               <button
                 type="button"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/12 bg-white/5"
-                aria-label="Close menu"
                 onClick={close}
               >
                 <X className="h-5 w-5" />
@@ -147,6 +110,10 @@ export function SiteHeader() {
               </Link>
               <Link href="#about" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5">
                 About
+              </Link>
+              {/* Simplified Mobile Projects Link */}
+              <Link href="#projects" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5">
+                Projects
               </Link>
               <Link href="#experience" onClick={close} className="rounded-xl px-3 py-3 hover:bg-white/5">
                 Experience
@@ -160,17 +127,6 @@ export function SiteHeader() {
               >
                 GitHub
               </a>
-              <div className="mt-2 rounded-2xl border border-white/10 bg-white/[0.03] p-3">
-                <p className="px-1 pb-2 text-[10px] uppercase tracking-[0.22em] text-mist/40">Projects</p>
-                <Link href="#projects" onClick={close} className="block rounded-lg px-2 py-2 hover:bg-white/5">
-                  All projects
-                </Link>
-                {projectLinks.map((l) => (
-                  <Link key={l.href} href={l.href} onClick={close} className="block rounded-lg px-2 py-2 hover:bg-white/5">
-                    {l.label}
-                  </Link>
-                ))}
-              </div>
               <a
                 href="/cv.pdf"
                 download="Muhammad_Uzair_Zia_CV.pdf"
