@@ -107,7 +107,7 @@ export function SiteHeader() {
       aria-modal="true"
     >
       <div className="mb-8 flex items-center justify-between">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-mist/40">Navigation</p>
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-mist/40"></p>
         <button
           type="button"
           className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-mist active:scale-95 transition-transform focus:outline-none"
