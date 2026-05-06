@@ -66,7 +66,7 @@ export function ProjectsBento() {
       <header className="space-y-3">
         <p className="text-xs uppercase tracking-[0.26em] text-accent">Portfolio</p>
         <h2 id="projects" className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
-          Projects in a calibrated bento layout
+          Projects
         </h2>
       </header>
 
