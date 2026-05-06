@@ -30,7 +30,7 @@ export default function Home() {
               Career Milestones & Highlights
             </h2>
             <p className="text-sm leading-relaxed text-mist/70">
-            A record of designing scalable AI architectures and automated systems, specializing in bridging the gap between embedded hardware and intelligent software.
+              Bridging the gap between sophisticated Web UI/UX and robust data architectures. Specializing in Python-driven AI integration, high-performance SQL databases, and automated ETL pipelines.
             </p>
           </header>
           <ExperienceTimeline />
