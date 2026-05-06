@@ -14,14 +14,16 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Muhammad Uzair Zia | Computer Engineer & AI/ML",
-  description:
-    "Building end-to-end AI systems using LLM pipelines, agentic RAG, intelligent automation, and full-stack web solutions.",
-  openGraph: {
-    title: "Muhammad Uzair Zia | Portfolio",
-    description:
-      "Computer Engineer & AI/ML Specialist. LLM pipelines, RAG, automation, Shopify, Django, PostgreSQL/MySQL.",
+// src/app/layout.tsx
+
+export const metadata = {
+  title: "Uzair Zia | AI Architect & Web Developer",
+  description: "Portfolio of Muhammad Uzair Zia specializing in AI, ETL, and Web Development.",
+  // Add this section:
+  icons: {
+    icon: "/logo.png", // Replace with your filename in the public folder
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
