@@ -184,7 +184,7 @@ export const projects: ProjectItem[] = [
     number: "06",
     title: "Electronic Voting Machine",
     subtitle: "FPGA · Hardware",
-    description: "Secure voting machine on Spartan-3E FPGA using Verilog/VHDL.",
+    description: "Secure voting machine on Spartan-6 FPGA using Verilog/VHDL.",
     tech: ["Verilog/VHDL", "Spartan-3E", "FPGA"],
     category: "hardware",
     span: "normal",
