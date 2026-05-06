@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+
 
 const syne = Syne({
   subsets: ["latin"],
@@ -27,10 +29,15 @@ export const metadata = {
   },
 };
 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${syne.variable} ${inter.variable}`}>
-      <body className="min-h-dvh bg-ink font-sans">{children}</body>
+      <body className="min-h-dvh bg-ink font-sans">
+        {children}
+        <Analytics /> {/* 2. Add this right here */}
+      </body>
     </html>
   );
+
 }
