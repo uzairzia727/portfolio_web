@@ -76,7 +76,7 @@ export function Hero() {
             href="mailto:uzairzia080@gmail.com"
             className="inline-flex items-center justify-center rounded-full border border-white/18 bg-white/5 px-6 py-3 font-semibold text-mist backdrop-blur-md transition hover:border-accent/55 hover:bg-white/10"
           >
-            Hire / collaborate
+            Lets Collaborate
           </a>
         </div>
 
