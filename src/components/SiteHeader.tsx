@@ -33,7 +33,6 @@ export function SiteHeader() {
 
   const close = () => setOpen(false);
 
-  // Standard link style to remove the white box (focus-outline-none)
   const navLinkStyle = "transition hover:text-mist focus:outline-none focus:text-mist";
 
   return (
@@ -44,20 +43,14 @@ export function SiteHeader() {
             UZAIR<span className="text-accent">.</span>
           </Link>
 
-          {/* Desktop Navigation - Simplified Projects */}
+          {/* Desktop Navigation - Added Services */}
           <nav className="hidden items-center gap-8 text-sm text-mist/70 lg:flex" aria-label="Primary">
-            <Link className={navLinkStyle} href="#home">
-              Home
-            </Link>
-            <Link className={navLinkStyle} href="#about">
-              About
-            </Link>
-            <Link className={navLinkStyle} href="#projects">
-              Projects
-            </Link>
-            <Link className={navLinkStyle} href="#experience">
-              Experience
-            </Link>
+            <Link className={navLinkStyle} href="#home">Home</Link>
+            <Link className={navLinkStyle} href="#about">About</Link>
+            <Link className={navLinkStyle} href="#projects">Projects</Link>
+            <Link className={navLinkStyle} href="#experience">Experience</Link>
+            {/* New Services Link */}
+            <Link className={navLinkStyle} href="#services">Services</Link>
             <a
               className={navLinkStyle}
               href="https://github.com/uzairzia727"
@@ -88,68 +81,67 @@ export function SiteHeader() {
         </div>
       </header>
 
-{/* Mobile Menu Drawer */}
-{open ? (
-  <div className="fixed inset-0 z-50 lg:hidden">
-    {/* Optimized Overlay: Lower blur and hardware acceleration */}
-    <div 
-      ref={overlay} 
-      className="absolute inset-0 bg-black/60 backdrop-blur-[4px] will-change-[opacity]" 
-      onClick={close} 
-      aria-hidden 
-    />
-    
-    <div
-      ref={sheet}
-      className="absolute inset-x-0 bottom-0 max-h-[88dvh] rounded-t-[2.5rem] border-t border-white/10 bg-ink/98 p-8 shadow-2xl will-change-transform"
-      style={{ transform: 'translateZ(0)' }} // Forces GPU rendering
-      role="dialog"
-      aria-modal="true"
-    >
-      <div className="mb-8 flex items-center justify-between">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-mist/40"></p>
-        <button
-          type="button"
-          className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-mist active:scale-95 transition-transform focus:outline-none"
-          onClick={close}
-        >
-          <X className="h-6 w-6" />
-        </button>
-      </div>
-      
-      <div className="flex flex-col gap-1 text-lg font-medium text-mist">
-        {["home", "about", "projects", "experience"].map((item) => (
-          <Link 
-            key={item}
-            href={`#${item}`} 
+      {/* Mobile Menu Drawer */}
+      {open ? (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div 
+            ref={overlay} 
+            className="absolute inset-0 bg-black/60 backdrop-blur-[4px] will-change-[opacity]" 
             onClick={close} 
-            className="rounded-2xl px-4 py-4 capitalize active:bg-white/5 focus:outline-none"
+            aria-hidden 
+          />
+          
+          <div
+            ref={sheet}
+            className="absolute inset-x-0 bottom-0 max-h-[88dvh] rounded-t-[2.5rem] border-t border-white/10 bg-ink/98 p-8 shadow-2xl will-change-transform"
+            style={{ transform: 'translateZ(0)' }} 
+            role="dialog"
+            aria-modal="true"
           >
-            {item}
-          </Link>
-        ))}
-        <a
-          href="https://github.com/uzairzia727"
-          onClick={close}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="rounded-2xl px-4 py-4 active:bg-white/5 focus:outline-none"
-        >
-          GitHub
-        </a>
-        
-        <a
-          href="/cv.pdf"
-          download="Muhammad_Uzair_Zia_CV.pdf"
-          className="mt-6 flex items-center justify-center rounded-full bg-accent py-4 text-xs font-bold uppercase tracking-[0.2em] text-ink shadow-lg shadow-accent/20 active:scale-[0.98] transition-transform focus:outline-none"
-        >
-          Download CV
-        </a>
-      </div>
-    </div>
-  </div>
-) : null}
-
-</>
+            <div className="mb-8 flex items-center justify-between">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-mist/40">Navigate</p>
+              <button
+                type="button"
+                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-mist active:scale-95 transition-transform focus:outline-none"
+                onClick={close}
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="flex flex-col gap-1 text-lg font-medium text-mist">
+              {/* Added 'services' to the map array */}
+              {["home", "about", "projects", "experience", "services"].map((item) => (
+                <Link 
+                  key={item}
+                  href={`#${item}`} 
+                  onClick={close} 
+                  className="rounded-2xl px-4 py-4 capitalize active:bg-white/5 focus:outline-none"
+                >
+                  {item}
+                </Link>
+              ))}
+              <a
+                href="https://github.com/uzairzia727"
+                onClick={close}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded-2xl px-4 py-4 active:bg-white/5 focus:outline-none"
+              >
+                GitHub
+              </a>
+              
+              <a
+                href="/cv.pdf"
+                download="Muhammad_Uzair_Zia_CV.pdf"
+                className="mt-6 flex items-center justify-center rounded-full bg-accent py-4 text-xs font-bold uppercase tracking-[0.2em] text-ink shadow-lg shadow-accent/20 active:scale-[0.98] transition-transform focus:outline-none"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }

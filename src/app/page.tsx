@@ -8,6 +8,7 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ProjectsBento } from "@/components/ProjectsBento";
+import { Services } from "@/components/Services";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Home() {
@@ -30,7 +31,9 @@ export default function Home() {
               Career Milestones & Highlights
             </h2>
             <p className="text-sm leading-relaxed text-mist/70">
-              Bridging the gap between sophisticated Web UI/UX and robust data architectures. Specializing in Python-driven AI integration, high-performance SQL databases, and automated ETL pipelines.
+              Bridging the gap between sophisticated Web UI/UX and robust data architectures. 
+              Specializing in Python-driven AI integration, high-performance SQL databases, 
+              and automated ETL pipelines.
             </p>
           </header>
           <ExperienceTimeline />
@@ -38,6 +41,11 @@ export default function Home() {
 
         <UniversalSection id="projects-area" bleed={<DataStream />}>
           <ProjectsBento />
+        </UniversalSection>
+
+        {/* Corrected: Wrapped in UniversalSection to ensure visibility and layout */}
+        <UniversalSection id="services">
+          <Services />
         </UniversalSection>
       </main>
       <SiteFooter />

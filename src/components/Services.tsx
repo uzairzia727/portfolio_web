@@ -35,17 +35,28 @@ export function Services() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".service-card", {
-        y: 40,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top 85%",
+      gsap.fromTo(
+        ".service-card",
+        { 
+          opacity: 0, 
+          y: 40,
+          filter: "blur(10px)" // Handles the blur issue
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          stagger: 0.15,
+          duration: 1,
+          ease: "power3.out",
+          clearProps: "all", // CRITICAL: This removes GSAP styles after finishing
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top 85%",
+            toggleActions: "play none none none", // Ensures it only plays once properly
+          },
+        }
+      );
     }, root);
     return () => ctx.revert();
   }, []);
@@ -53,14 +64,18 @@ export function Services() {
   return (
     <section id="services" ref={root} className="py-24 border-t border-white/5">
       <div className="mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-          Professional <span className="text-accent">Services</span>
+      <header className="space-y-3">
+      <p className="text-xs uppercase tracking-[0.26em] text-accent">Services</p>
+        <h2 id="projects" className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
+         Engineering Intelligent Systems and Scalable Digital Infrastructure.
         </h2>
+        
         <p className="text-mist/60 max-w-lg leading-relaxed">
           Summing up my engineering journey into high-impact digital solutions for modern businesses.
         </p>
+        </header>
       </div>
-
+      
       <div className="grid gap-6 md:grid-cols-2">
         {services.map((service, index) => (
           <div
