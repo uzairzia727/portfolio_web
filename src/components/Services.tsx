@@ -100,7 +100,9 @@ export function Services() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://wa.me/923331860154"
+                href={`https://wa.me/923331860154?text=${encodeURIComponent(
+                    `Hi Uzair, I'm interested in your ${service.title} services!`
+                  )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white/5 px-5 py-2.5 text-xs font-semibold text-mist border border-white/10 transition hover:bg-accent hover:text-ink hover:border-accent"
@@ -109,7 +111,11 @@ export function Services() {
                 WhatsApp
               </a>
               <a
-                href="mailto:uzairzia080@gmail.com"
+                href={`mailto:uzairzia080@gmail.com?subject=${encodeURIComponent(
+                    `Inquiry: ${service.title}`
+                  )}&body=${encodeURIComponent(
+                    `Hello Uzair,\n\nI saw your portfolio and would like to discuss a project regarding ${service.title}.`
+                  )}`}
                 className="inline-flex items-center gap-2 rounded-full bg-white/5 px-5 py-2.5 text-xs font-semibold text-mist border border-white/10 transition hover:bg-accent hover:text-ink hover:border-accent"
               >
                 <Mail className="w-3.5 h-3.5" />
