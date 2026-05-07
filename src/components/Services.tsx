@@ -67,7 +67,7 @@ export function Services() {
       <header className="space-y-3">
       <p className="text-xs uppercase tracking-[0.26em] text-accent">Services</p>
         <h2 id="projects" className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
-         Engineering Intelligent Systems and Scalable Digital Infrastructure.
+         Intelligent Systems and Scalable Digital Infrastructure.
         </h2>
         
         <p className="text-sm leading-relaxed text-mist/70">
