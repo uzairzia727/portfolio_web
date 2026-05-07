@@ -70,7 +70,7 @@ export function Services() {
          Engineering Intelligent Systems and Scalable Digital Infrastructure.
         </h2>
         
-        <p className="text-mist/60 max-w-lg leading-relaxed">
+        <p className="text-sm leading-relaxed text-mist/70">
           Summing up my engineering journey into high-impact digital solutions for modern businesses.
         </p>
         </header>
