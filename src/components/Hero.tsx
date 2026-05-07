@@ -54,7 +54,7 @@ export function Hero() {
               className="h-full w-full object-cover object-[50%_12%]"
             />
           </div>
-          <div className="pointer-events-none absolute -bottom-6 left-8 right-8 h-28 rounded-[32px] bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+          
         </div>
       </div>
 

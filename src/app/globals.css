@@ -42,8 +42,8 @@ body {
 }
 
 .hero-mask {
-  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 32%, transparent 76%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 32%, transparent 76%);
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 32%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 32%, transparent 70%);
 }
 
 @keyframes grid-drift {
