@@ -81,64 +81,71 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
-      {open ? (
-        <div className="flex flex-col gap-1 text-lg font-medium text-mist overflow-y-auto max-h-[60dvh] pr-2 custom-scrollbar">
-          <div 
-            ref={overlay} 
-            className="absolute inset-0 bg-black/60 backdrop-blur-[4px] will-change-[opacity]" 
-            onClick={close} 
-            aria-hidden 
-          />
-          
-          <div
-            ref={sheet}
-            className="absolute inset-x-0 bottom-0 max-h-[88dvh] rounded-t-[2.5rem] border-t border-white/10 bg-ink/98 p-8 shadow-2xl will-change-transform"
-            style={{ transform: 'translateZ(0)' }} 
-            role="dialog"
-            aria-modal="true"
+{/* Mobile Menu Drawer */}
+{open ? (
+  <div className="fixed inset-0 z-50 lg:hidden">
+    <div 
+      ref={overlay} 
+      className="absolute inset-0 bg-black/80 backdrop-blur-md will-change-[opacity]" 
+      onClick={close} 
+      aria-hidden 
+    />
+    
+    <div
+      ref={sheet}
+      className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] flex-col rounded-t-[2.5rem] border-t border-white/10 bg-ink/95 p-6 pb-10 shadow-2xl will-change-transform"
+      style={{ transform: 'translateZ(0)' }} 
+      role="dialog"
+      aria-modal="true"
+    >
+      {/* Header section - Fixed height */}
+      <div className="mb-6 flex items-center justify-between px-2">
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent"></p>
+        <button
+          type="button"
+          className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-mist active:scale-95 transition-transform focus:outline-none"
+          onClick={close}
+        >
+          <X className="h-6 w-6" />
+        </button>
+      </div>
+      
+      {/* Scrollable Links Container - Takes up remaining space */}
+      <div className="flex flex-1 flex-col overflow-y-auto pr-1">
+        <div className="flex flex-col gap-0.5 font-medium text-mist">
+          {["home", "about", "projects", "experience", "services"].map((item) => (
+            <Link 
+              key={item}
+              href={`#${item}`} 
+              onClick={close} 
+              className="rounded-2xl px-4 py-3 text-lg capitalize active:bg-white/5 focus:outline-none"
+            >
+              {item}
+            </Link>
+          ))}
+          <a
+            href="https://github.com/uzairzia727"
+            onClick={close}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="rounded-2xl px-4 py-3 text-lg active:bg-white/5 focus:outline-none"
           >
-            <div className="mb-8 flex items-center justify-between">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-mist/40">Navigate</p>
-              <button
-                type="button"
-                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-mist active:scale-95 transition-transform focus:outline-none"
-                onClick={close}
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-            
-            <div className="flex flex-col gap-1 text-lg font-medium text-mist">
-              {/* Added 'services' to the map array */}
-              {["home", "about", "projects", "experience", "services"].map((item) => (
-                <Link 
-                  key={item}
-                  href={`#${item}`} 
-                  onClick={close} 
-                  className="rounded-2xl px-4 py-4 capitalize active:bg-white/5 focus:outline-none"
-                >
-                  {item}
-                </Link>
-              ))}
-              <a
-                href="https://github.com/uzairzia727"
-                onClick={close}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="rounded-2xl px-4 py-4 active:bg-white/5 focus:outline-none"
-              >
-                GitHub
-              </a>
-              
-              <a
-                href="/cv.pdf"
-                download="Muhammad_Uzair_Zia_CV.pdf"
-                className="mt-6 flex items-center justify-center rounded-full bg-accent py-4 text-xs font-bold uppercase tracking-[0.2em] text-ink shadow-lg shadow-accent/20 active:scale-[0.98] transition-transform focus:outline-none"
-              >
-                Download CV
-              </a>
-            </div>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      {/* Fixed Button Section - Always stays at the bottom of the drawer */}
+      <div className="mt-4 pt-2">
+        <a
+          href="/cv.pdf"
+          download="Muhammad_Uzair_Zia_CV.pdf"
+          className="flex w-full items-center justify-center rounded-full bg-accent py-4 text-xs font-bold uppercase tracking-[0.2em] text-ink shadow-lg shadow-accent/20 active:scale-[0.98] transition-transform focus:outline-none"
+        >
+          Download CV
+        </a>
+      </div>
+
           </div>
         </div>
       ) : null}
