@@ -83,7 +83,7 @@ export function SiteHeader() {
 
       {/* Mobile Menu Drawer */}
       {open ? (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="flex flex-col gap-1 text-lg font-medium text-mist overflow-y-auto max-h-[60dvh] pr-2 custom-scrollbar">
           <div 
             ref={overlay} 
             className="absolute inset-0 bg-black/60 backdrop-blur-[4px] will-change-[opacity]" 
