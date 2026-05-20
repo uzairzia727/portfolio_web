@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import {
   Database,
   LayoutGrid,
@@ -32,8 +33,10 @@ type Props = { stackIds: string[] };
 
 export function StackFloater({ stackIds }: Props) {
   const root = useRef<HTMLDivElement>(null);
+  const light = useLightMotion();
 
   useEffect(() => {
+    if (light) return;
     const el = root.current;
     if (!el) return;
     const pills = el.querySelectorAll<HTMLElement>("[data-pill]");
@@ -51,7 +54,7 @@ export function StackFloater({ stackIds }: Props) {
       });
     }, el);
     return () => ctx.revert();
-  }, [stackIds]);
+  }, [stackIds, light]);
 
   return (
     <div ref={root} className="relative mt-10 flex flex-wrap gap-3 md:absolute md:right-0 md:top-6 md:mt-0 md:max-w-[220px] md:justify-end">
@@ -63,7 +66,7 @@ export function StackFloater({ stackIds }: Props) {
           <div
             data-pill
             key={id}
-            className="flex items-center gap-2 rounded-full border border-accent/25 bg-white/5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-wider text-mist shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-md"
+            className="flex items-center gap-2 rounded-full border border-accent/25 bg-white/[0.08] px-3 py-1.5 text-[11px] font-medium uppercase tracking-wider text-mist max-md:shadow-none md:bg-white/5 md:shadow-[0_8px_30px_rgba(0,0,0,0.35)] md:backdrop-blur-md"
           >
             <Icon className="h-4 w-4 text-accent" aria-hidden />
             <span>{label}</span>

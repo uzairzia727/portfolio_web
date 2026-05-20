@@ -97,6 +97,13 @@ body {
     max-height: none;
     opacity: 1;
     transform: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .exp-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 280px;
   }
 }
 

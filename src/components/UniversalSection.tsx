@@ -3,6 +3,7 @@
 import { useRef, useEffect, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLightMotion } from "@/hooks/useLightMotion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,8 +19,10 @@ type Props = {
 
 export function UniversalSection({ id, children, bleed, className = "", innerClassName = "" }: Props) {
   const root = useRef<HTMLElement | null>(null);
+  const light = useLightMotion();
 
   useEffect(() => {
+    if (light) return;
     const el = root.current;
     if (!el) return;
 
@@ -53,7 +56,7 @@ export function UniversalSection({ id, children, bleed, className = "", innerCla
     }, el);
 
     return () => ctx.revert();
-  }, []);
+  }, [light]);
 
   return (
     <section
@@ -64,7 +67,9 @@ export function UniversalSection({ id, children, bleed, className = "", innerCla
       {bleed}
       <div
         data-universal-zoom
-        className={`relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col px-4 will-change-[transform,opacity] sm:px-5 lg:px-8 ${innerClassName}`}
+        className={`relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col px-4 sm:px-5 lg:px-8 ${
+          light ? "" : "will-change-[transform,opacity]"
+        } ${innerClassName}`}
       >
         {children}
       </div>

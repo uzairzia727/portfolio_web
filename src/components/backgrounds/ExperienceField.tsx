@@ -2,11 +2,18 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useLightMotion } from "@/hooks/useLightMotion";
+
+const DESKTOP_NODES = 42;
+const MOBILE_NODES = 10;
 
 export function ExperienceField() {
   const wrap = useRef<HTMLDivElement>(null);
+  const light = useLightMotion();
+  const nodeCount = light ? MOBILE_NODES : DESKTOP_NODES;
 
   useEffect(() => {
+    if (light) return;
     const root = wrap.current;
     if (!root) return;
     const dots = root.querySelectorAll<HTMLElement>("[data-node]");
@@ -24,16 +31,18 @@ export function ExperienceField() {
       });
     }, root);
     return () => ctx.revert();
-  }, []);
+  }, [light, nodeCount]);
 
   return (
     <div ref={wrap} className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.14),transparent_55%)]" />
-      {Array.from({ length: 42 }).map((_, i) => (
+      {Array.from({ length: nodeCount }).map((_, i) => (
         <span
           key={i}
           data-node
-          className="absolute h-1 w-1 rounded-full bg-accent/40 shadow-[0_0_12px_rgba(56,189,248,0.35)]"
+          className={`absolute h-1 w-1 rounded-full bg-accent/40 ${
+            light ? "opacity-30" : "shadow-[0_0_12px_rgba(56,189,248,0.35)]"
+          }`}
           style={{
             left: `${(i * 17) % 100}%`,
             top: `${(i * 23) % 100}%`,

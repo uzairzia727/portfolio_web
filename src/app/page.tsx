@@ -25,7 +25,11 @@ export default function Home() {
           <About />
         </UniversalSection>
 
-        <UniversalSection id="experience" bleed={<ExperienceField />}>
+        <UniversalSection
+          id="experience"
+          bleed={<ExperienceField />}
+          className="max-md:min-h-0 max-md:py-12"
+        >
           <header className="max-w-3xl space-y-4">
             <p className="text-xs uppercase tracking-[0.26em] text-accent">Experience</p>
             <h2 className="font-display text-2xl text-mist sm:text-3xl lg:text-4xl">

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences } from "@/data/portfolio";
 import { StackFloater } from "@/components/StackFloater";
+import { useLightMotion } from "@/hooks/useLightMotion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -13,11 +14,20 @@ if (typeof window !== "undefined") {
 export function ExperienceTimeline() {
   const track = useRef<HTMLDivElement>(null);
   const rail = useRef<HTMLDivElement>(null);
+  const light = useLightMotion();
 
   useEffect(() => {
     const root = track.current;
     const line = rail.current;
     if (!root || !line) return;
+
+    if (light) {
+      line.style.transform = "scaleY(1)";
+      root.querySelectorAll<HTMLElement>("[data-job]").forEach((card) => {
+        card.classList.add("job-lit");
+      });
+      return;
+    }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -50,7 +60,7 @@ export function ExperienceTimeline() {
     }, root);
 
     return () => ctx.revert();
-  }, []);
+  }, [light]);
 
   return (
     <div ref={track} className="relative mx-auto mt-10 max-w-3xl pb-12 sm:mt-14 sm:pb-16">
@@ -58,7 +68,9 @@ export function ExperienceTimeline() {
         <div className="h-full w-full bg-gradient-to-b from-transparent via-white/12 to-transparent" />
         <div
           ref={rail}
-          className="absolute left-0 top-0 h-full w-full origin-top bg-gradient-to-b from-accent via-accent-muted to-accent-deep opacity-90 shadow-[0_0_32px_rgba(56,189,248,0.55)]"
+          className={`absolute left-0 top-0 h-full w-full origin-top bg-gradient-to-b from-accent via-accent-muted to-accent-deep opacity-90 ${
+            light ? "scale-y-100" : "shadow-[0_0_32px_rgba(56,189,248,0.55)]"
+          }`}
         />
       </div>
 
@@ -67,10 +79,14 @@ export function ExperienceTimeline() {
           <article
             key={job.id}
             data-job
-            className="exp-card relative ml-8 rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 transition-[transform,box-shadow,background-color] duration-300 will-change-transform sm:ml-10 sm:rounded-2xl sm:p-6 md:ml-12 md:p-8 [&.job-lit]:border-accent/35 [&.job-lit]:bg-white/[0.06] [&.job-lit]:shadow-[0_18px_60px_-20px_rgba(56,189,248,0.35)]"
+            className={`exp-card relative ml-8 rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 sm:ml-10 sm:rounded-2xl sm:p-6 md:ml-12 md:p-8 ${
+              light
+                ? "border-accent/25 bg-white/[0.05]"
+                : "transition-[transform,box-shadow,background-color] duration-300 will-change-transform [&.job-lit]:border-accent/35 [&.job-lit]:bg-white/[0.06] [&.job-lit]:shadow-[0_18px_60px_-20px_rgba(56,189,248,0.35)]"
+            }`}
           >
             <span
-              className="absolute -left-[41px] top-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-accent/55 bg-accent/35 shadow-[0_0_20px_rgba(56,189,248,0.75)] md:-left-[53px]"
+              className="absolute -left-[41px] top-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-accent/55 bg-accent/35 max-md:shadow-none md:shadow-[0_0_20px_rgba(56,189,248,0.75)] md:-left-[53px]"
               aria-hidden
             >
               <span className="h-2 w-2 rounded-full bg-mist opacity-95" />
@@ -87,7 +103,7 @@ export function ExperienceTimeline() {
               <StackFloater stackIds={job.stackIds} />
             </div>
 
-            <div className="experience-panel mt-5 grid overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.04] backdrop-blur-md md:backdrop-blur-xl">
+            <div className="experience-panel mt-5 grid overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.06] max-md:backdrop-blur-none md:bg-white/[0.04] md:backdrop-blur-xl">
               <ul className="grid gap-2 px-5 py-4 text-sm leading-relaxed text-mist/72 md:px-6 md:py-5">
                 {job.bullets.map((b) => (
                   <li key={b} className="flex gap-2">
