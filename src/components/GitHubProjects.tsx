@@ -66,7 +66,7 @@ export async function GitHubProjects() {
           GitHub repositories
         </h2>
         <p className="text-sm leading-relaxed text-mist/70">
-          Public repositories synced from GitHub — refreshed hourly so new work appears automatically.
+          Public repositories synced from GitHub refreshed hourly so new work appears automatically.
         </p>
       </header>
 
