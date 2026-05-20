@@ -51,14 +51,9 @@ export function SiteHeader() {
             <Link className={navLinkStyle} href="#experience">Experience</Link>
             {/* New Services Link */}
             <Link className={navLinkStyle} href="#services">Services</Link>
-            <a
-              className={navLinkStyle}
-              href="https://github.com/uzairzia727"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <Link className={navLinkStyle} href="#github">
               GitHub
-            </a>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -123,15 +118,13 @@ export function SiteHeader() {
               {item}
             </Link>
           ))}
-          <a
-            href="https://github.com/uzairzia727"
+          <Link
+            href="#github"
             onClick={close}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="rounded-2xl px-4 py-3 text-lg active:bg-white/5 focus:outline-none"
+            className="rounded-2xl px-4 py-3 text-lg capitalize active:bg-white/5 focus:outline-none"
           >
             GitHub
-          </a>
+          </Link>
         </div>
       </div>
 

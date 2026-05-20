@@ -8,6 +8,7 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ProjectsBento } from "@/components/ProjectsBento";
+import { GitHubProjects } from "@/components/GitHubProjects";
 import { Services } from "@/components/Services";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -43,7 +44,10 @@ export default function Home() {
           <ProjectsBento />
         </UniversalSection>
 
-        {/* Corrected: Wrapped in UniversalSection to ensure visibility and layout */}
+        <UniversalSection id="github-area" bleed={<DataStream />}>
+          <GitHubProjects />
+        </UniversalSection>
+
         <UniversalSection id="services">
           <Services />
         </UniversalSection>
