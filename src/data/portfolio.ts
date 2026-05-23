@@ -29,8 +29,8 @@ export const experiences: ExperienceItem[] = [
     id: "freelance",
     title: "Freelance Developer & AI Automation Specialist",
     company: "Independent, remote",
-    meta: "Active · 2025-Present",
-    duration: "2025-Present",
+    meta: "Active · 2024-Present",
+    duration: "2024-Present",
     bullets: [
       "Privacy-First Local RAG Pipelines: Built automated Google Drive document analysis and chat retrieval pipelines using n8n, Ollama, and Groq.",
       "Multi-Agent Orchestration: Engineered and deployed advanced LLM frameworks featuring autonomous model-to-model communication.",
