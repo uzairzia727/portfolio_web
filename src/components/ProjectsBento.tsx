@@ -2,7 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ExternalLink } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects, type ProjectCategory } from "@/data/portfolio";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const FILTERS: { id: ProjectCategory | "all"; label: string; hash?: string }[] = [
   { id: "all", label: "All work" },
@@ -61,6 +67,11 @@ export function ProjectsBento() {
     return filter === "all" ? projects : projects.filter((p) => p.category === filter);
   }, [filter]);
 
+  useEffect(() => {
+    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(id);
+  }, [filter]);
+
   return (
     <div className="mt-14 space-y-10">
       <header className="space-y-3">
@@ -82,9 +93,7 @@ export function ProjectsBento() {
               onClick={() => {
                 setFilter(f.id);
                 const targetId = f.id === "all" ? "projects" : f.hash;
-                if (!targetId) return;
-                history.replaceState(null, "", `#${targetId}`);
-                document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (targetId) history.replaceState(null, "", `#${targetId}`);
               }}
               className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition ${
                 active
@@ -98,11 +107,16 @@ export function ProjectsBento() {
         })}
       </div>
 
-      <div className="project-grid grid grid-cols-1 auto-rows-[minmax(240px,auto)] gap-4 sm:auto-rows-[minmax(220px,auto)] sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        key={filter}
+        className="project-grid grid grid-cols-1 auto-rows-[minmax(240px,auto)] gap-4 sm:auto-rows-[minmax(220px,auto)] sm:gap-5 md:grid-cols-2 lg:grid-cols-3"
+      >
         {filtered.map((p) => (
           <article
             key={p.id}
-            className={`pcard group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-4 shadow-[0_18px_60px_-30px_rgba(0,0,0,0.75)] sm:rounded-3xl sm:p-6 lg:rounded-3xl ${spanCls(p.span)}`}
+            className={`pcard group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent p-4 shadow-[0_18px_60px_-30px_rgba(0,0,0,0.75)] sm:rounded-3xl sm:p-6 lg:rounded-3xl ${
+              filter === "all" ? spanCls(p.span) : ""
+            }`}
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_-10%,rgba(56,189,248,0.18),transparent_55%)] opacity-75 transition-opacity duration-500 group-hover:opacity-100" />
             <header className="relative z-[1] flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">

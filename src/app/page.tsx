@@ -17,11 +17,19 @@ export default function Home() {
     <>
       <SiteHeader />
       <main>
-        <UniversalSection id="home" bleed={<HeroMesh />}>
+        <UniversalSection
+          id="home"
+          bleed={<HeroMesh />}
+          className="min-h-[min(100svh,900px)] sm:min-h-[min(100svh,920px)]"
+        >
           <Hero />
         </UniversalSection>
 
-        <UniversalSection id="about" bleed={<AboutGrid />}>
+        <UniversalSection
+          id="about"
+          bleed={<AboutGrid />}
+          className="min-h-[min(100svh,900px)] sm:min-h-[min(100svh,920px)]"
+        >
           <About />
         </UniversalSection>
 
@@ -44,15 +52,25 @@ export default function Home() {
           <ExperienceTimeline />
         </UniversalSection>
 
-        <UniversalSection id="projects-area" bleed={<DataStream />}>
+        <UniversalSection
+          id="projects-area"
+          bleed={<DataStream />}
+          className="min-h-0"
+          innerClassName="relative z-10"
+        >
           <ProjectsBento />
         </UniversalSection>
 
-        <UniversalSection id="github-area" bleed={<DataStream />}>
+        <UniversalSection
+          id="github-area"
+          bleed={<DataStream />}
+          className="min-h-0"
+          innerClassName="relative z-10"
+        >
           <GitHubProjects />
         </UniversalSection>
 
-        <UniversalSection id="services">
+        <UniversalSection id="services" className="min-h-0">
           <Services />
         </UniversalSection>
       </main>

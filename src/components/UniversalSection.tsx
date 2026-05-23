@@ -30,29 +30,22 @@ export function UniversalSection({ id, children, bleed, className = "", innerCla
     if (!inner) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: "top 88%",
-          end: "bottom 12%",
-          scrub: 0.75,
-        },
-      });
-
-      // Avoid filter: blur on this wrapper (blurs descendants and breaks card hover sharpening).
-      tl.fromTo(inner, { scale: 1.06, opacity: 0.4, y: 28 }, {
-        scale: 1,
-        opacity: 1,
-        y: 0,
-        duration: 0.52,
-        ease: "power2.out",
-      }).to(inner, {
-        scale: 1.05,
-        opacity: 0.15,
-        y: -18,
-        duration: 0.48,
-        ease: "power2.in",
-      });
+      gsap.fromTo(
+        inner,
+        { opacity: 0, y: 28 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power2.out",
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
     }, el);
 
     return () => ctx.revert();
@@ -62,7 +55,7 @@ export function UniversalSection({ id, children, bleed, className = "", innerCla
     <section
       ref={root}
       id={id}
-      className={`relative min-h-[min(100svh,900px)] scroll-mt-20 overflow-hidden py-14 sm:min-h-[min(100svh,920px)] sm:scroll-mt-24 sm:py-20 lg:py-28 ${className}`}
+      className={`relative z-0 scroll-mt-20 overflow-hidden bg-ink py-14 sm:scroll-mt-24 sm:py-20 lg:py-28 ${className}`}
     >
       {bleed}
       <div

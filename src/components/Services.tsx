@@ -62,11 +62,11 @@ export function Services() {
   }, []);
 
   return (
-    <section id="services" ref={root} className="py-24 border-t border-white/5">
+    <section ref={root} className="relative z-10 border-t border-white/5 py-16 sm:py-20 lg:py-24">
       <div className="mb-16">
       <header className="space-y-3">
       <p className="text-xs uppercase tracking-[0.26em] text-accent">Services</p>
-        <h2 id="projects" className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
+        <h2 id="services-heading" className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
          Intelligent Systems and Scalable Digital Infrastructure.
         </h2>
         
