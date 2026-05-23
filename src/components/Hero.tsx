@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const SOCIAL_ICON_WRAP = "flex h-[18px] w-[18px] shrink-0 items-center justify-center sm:h-5 sm:w-5";
 
@@ -48,7 +48,7 @@ export function Hero() {
 
         <div
           className="hero-social flex flex-row flex-nowrap items-center gap-3 self-start sm:gap-3.5"
-          aria-label="Contact on WhatsApp or email"
+          aria-label="Social and contact links"
         >
           <a
             href="https://wa.me/923331860154"
@@ -68,6 +68,28 @@ export function Hero() {
           >
             <span className={SOCIAL_ICON_WRAP}>
               <Mail className="h-full w-full" strokeWidth={1.75} aria-hidden />
+            </span>
+          </a>
+          <a
+            href="https://linkedin.com/in/muhammad-uzair-6882aa303"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={SOCIAL_LINK_CLASS}
+            aria-label="LinkedIn profile"
+          >
+            <span className={SOCIAL_ICON_WRAP}>
+              <Linkedin className="h-full w-full" strokeWidth={1.75} aria-hidden />
+            </span>
+          </a>
+          <a
+            href="https://github.com/uzairzia727"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={SOCIAL_LINK_CLASS}
+            aria-label="GitHub profile"
+          >
+            <span className={SOCIAL_ICON_WRAP}>
+              <Github className="h-full w-full" strokeWidth={1.75} aria-hidden />
             </span>
           </a>
         </div>
@@ -132,32 +154,6 @@ export function Hero() {
               uzairzia080@gmail.com
               <br />
               <span className="text-mist/60">0333-1880154</span>
-            </dd>
-          </div>
-          <div className="sm:col-span-2">
-            <dt className="text-[10px] uppercase tracking-[0.22em] text-mist/40">LinkedIn</dt>
-            <dd className="mt-2 text-sm text-accent">
-              <a
-                href="https://linkedin.com/in/muhammad-uzair-6882aa303"
-                className="hover:text-mist"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                linkedin.com/in/muhammad-uzair-6882aa303
-              </a>
-            </dd>
-          </div>
-          <div className="sm:col-span-2">
-            <dt className="text-[10px] uppercase tracking-[0.22em] text-mist/40">GitHub</dt>
-            <dd className="mt-2 text-sm text-accent">
-              <a
-                href="https://github.com/uzairzia727"
-                className="hover:text-mist"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                github.com/uzairzia727
-              </a>
             </dd>
           </div>
         </dl>
