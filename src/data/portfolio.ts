@@ -194,8 +194,8 @@ export const projects: ProjectItem[] = [
 
 export const skills = {
   aiml: ["TensorFlow", "scikit-learn", "Hugging Face", "LangChain", "LlamaIndex", "RAG/Agentic", "NumPy", "Pandas", "OpenCV"],
-  web: ["Python", "Django", "Shopify", "WordPress", "Apps Script", "GHL", "REST APIs"],
-  data: ["Power BI", "Firebase", "MySQL", "ChromaDB", "Excel/ETL"],
+  web: ["Python", "Django", "Shopify", "WordPress","n8n", "Apps Script", "GHL", "REST APIs"],
+  data: ["Power BI", "Firebase", "MySQL","Supabase", "ChromaDB", "Excel/ETL"],
   net: ["TCP/IP", "OSPF", "IPsec VPN", "Cisco PT"],
   tools: ["Git", "Figma", "VS Code", "MATLAB", "Arduino", "Proteus"],
 };
