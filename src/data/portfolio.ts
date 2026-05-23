@@ -197,7 +197,7 @@ export const skills = {
   web: ["Python", "Django", "Shopify", "WordPress","n8n", "Apps Script", "GHL", "REST APIs"],
   data: ["Power BI", "Firebase", "MySQL","Supabase", "ChromaDB", "Excel/ETL"],
   net: ["TCP/IP", "OSPF", "IPsec VPN", "Cisco PT"],
-  tools: ["Git", "Figma", "VS Code", "MATLAB", "Arduino", "Proteus"],
+  tools: ["Git","Vercel", "Figma", "VS Code", "MATLAB", "Arduino", "Proteus"],
 };
 
 export const certifications = [
