@@ -32,9 +32,10 @@ export const experiences: ExperienceItem[] = [
     meta: "Active · 2025-Present",
     duration: "2025-Present",
     bullets: [
-      "Shopify store Toyz for Kids (toyzforkids.com): theme and UX work, collection-led merchandising, and checkout tuned for families buying toys and gifts.",
-      "WordPress builds for telecom clients a3technologies.co.uk and ocs7.com, plus ai-technologies.co.uk for professional positioning and lead capture.",
-      "Research and deploy multi-agent GPT orchestration with autonomous model communication.",
+      "Privacy-First Local RAG Pipelines: Built automated Google Drive document analysis and chat retrieval pipelines using n8n, Ollama, and Groq.",
+      "Multi-Agent Orchestration: Engineered and deployed advanced LLM frameworks featuring autonomous model-to-model communication.",
+      "WordPress Architecture Optimization: Designed responsive Elementor architectures for corporate telecom and tech clients to maximize conversion rates.",
+      "Shopify UX & Checkout Re-engineering: Restructured theme UX, collection merchandising, and conversion-focused checkouts for high-traffic e-commerce stores.",
     ],
     stackIds: ["shopify", "wordpress", "openai"],
   },
