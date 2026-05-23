@@ -37,7 +37,8 @@ export function Hero() {
   return (
     <div 
       ref={root} 
-      className="grid flex-1 items-start gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(260px,0.92fr)] lg:items-center lg:gap-16"
+      /* FIXED: Changed lg:items-center to lg:items-start below */
+      className="grid flex-1 items-start gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(260px,0.92fr)] lg:items-start lg:gap-16"
     >
       {/* --- BLOCK 1: NAME & CHIP (Top on Mobile, Left on Desktop) --- */}
       <div className="flex flex-col gap-3 sm:gap-4 lg:col-start-1">
@@ -95,7 +96,6 @@ export function Hero() {
               className="h-full w-full object-cover object-[50%_12%]"
             />
           </div>
-          
         </div>
       </div>
 
