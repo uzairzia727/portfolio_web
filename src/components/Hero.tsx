@@ -7,8 +7,20 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const SOCIAL_ICON_WRAP = "flex h-[18px] w-[18px] shrink-0 items-center justify-center sm:h-5 sm:w-5";
 
-const SOCIAL_LINK_CLASS =
-  "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-mist/45 transition-[color,background-color,border-color,transform] duration-300 hover:border-accent/45 hover:bg-accent/10 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 active:scale-95 sm:h-10 sm:w-10";
+const SOCIAL_LINK_BASE =
+  "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-[color,background-color,border-color,transform,box-shadow] duration-300 focus:outline-none focus-visible:ring-2 active:scale-95 sm:h-10 sm:w-10";
+
+/** Official brand colors per platform */
+const SOCIAL_BRAND_CLASS = {
+  whatsapp:
+    "border-[#25D366]/35 bg-[#25D366]/12 text-[#25D366] hover:border-[#25D366]/60 hover:bg-[#25D366]/22 hover:text-[#3ef27e] focus-visible:ring-[#25D366]/45",
+  gmail:
+    "border-[#EA4335]/35 bg-[#EA4335]/12 text-[#EA4335] hover:border-[#EA4335]/60 hover:bg-[#EA4335]/22 hover:text-[#ff6b5c] focus-visible:ring-[#EA4335]/45",
+  linkedin:
+    "border-[#0A66C2]/35 bg-[#0A66C2]/12 text-[#0A66C2] hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/22 hover:text-[#3d9ef0] focus-visible:ring-[#0A66C2]/45",
+  github:
+    "border-[#8b949e]/35 bg-[#f0f6fc]/[0.06] text-[#f0f6fc] hover:border-[#f0f6fc]/45 hover:bg-[#f0f6fc]/12 hover:text-white focus-visible:ring-[#f0f6fc]/35",
+} as const;
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -54,7 +66,7 @@ export function Hero() {
             href="https://wa.me/923331860154"
             target="_blank"
             rel="noopener noreferrer"
-            className={SOCIAL_LINK_CLASS}
+            className={`${SOCIAL_LINK_BASE} ${SOCIAL_BRAND_CLASS.whatsapp}`}
             aria-label="Chat on WhatsApp"
           >
             <span className={SOCIAL_ICON_WRAP}>
@@ -63,7 +75,7 @@ export function Hero() {
           </a>
           <a
             href="mailto:uzairzia080@gmail.com"
-            className={SOCIAL_LINK_CLASS}
+            className={`${SOCIAL_LINK_BASE} ${SOCIAL_BRAND_CLASS.gmail}`}
             aria-label="Send email"
           >
             <span className={SOCIAL_ICON_WRAP}>
@@ -74,7 +86,7 @@ export function Hero() {
             href="https://linkedin.com/in/muhammad-uzair-6882aa303"
             target="_blank"
             rel="noopener noreferrer"
-            className={SOCIAL_LINK_CLASS}
+            className={`${SOCIAL_LINK_BASE} ${SOCIAL_BRAND_CLASS.linkedin}`}
             aria-label="LinkedIn profile"
           >
             <span className={SOCIAL_ICON_WRAP}>
@@ -85,7 +97,7 @@ export function Hero() {
             href="https://github.com/uzairzia727"
             target="_blank"
             rel="noopener noreferrer"
-            className={SOCIAL_LINK_CLASS}
+            className={`${SOCIAL_LINK_BASE} ${SOCIAL_BRAND_CLASS.github}`}
             aria-label="GitHub profile"
           >
             <span className={SOCIAL_ICON_WRAP}>
