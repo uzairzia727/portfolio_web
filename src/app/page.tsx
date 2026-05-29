@@ -10,6 +10,7 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ProjectsBento } from "@/components/ProjectsBento";
 import { GitHubProjects } from "@/components/GitHubProjects";
 import { Services } from "@/components/Services";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export default function Home() {
@@ -72,6 +73,10 @@ export default function Home() {
 
         <UniversalSection id="services" className="min-h-0">
           <Services />
+        </UniversalSection>
+
+        <UniversalSection id="testimonials-area" className="min-h-0">
+          <TestimonialCarousel />
         </UniversalSection>
       </main>
       <SiteFooter />
