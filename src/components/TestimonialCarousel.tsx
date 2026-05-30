@@ -92,6 +92,7 @@ export function TestimonialCarousel() {
 
   const [index, setIndex] = useState(0);
   const [transition, setTransition] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const [stepPx, setStepPx] = useState(0);
 
   const touchStartX = useRef(0);
@@ -146,12 +147,12 @@ export function TestimonialCarousel() {
     setIndex(target);
   }, []);
 
-  // Strict autoplay loop with zero pausing conditions
+  // Autoplay handler tracking the explicit hover/touch state
   useEffect(() => {
-    if (stepPx === 0) return;
+    if (isPaused || stepPx === 0) return;
     const id = window.setInterval(next, AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [next, stepPx]);
+  }, [next, stepPx, isPaused]);
 
   const handleTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
     if (e.propertyName !== "transform") return;
@@ -166,6 +167,7 @@ export function TestimonialCarousel() {
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
     dragging.current = true;
+    setIsPaused(true);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
@@ -179,6 +181,8 @@ export function TestimonialCarousel() {
     if (touchDeltaX.current <= -SWIPE_THRESHOLD) next();
     else if (touchDeltaX.current >= SWIPE_THRESHOLD) prev();
     touchDeltaX.current = 0;
+    // Safely resume slide loop shortly after swipe completes
+    setTimeout(() => setIsPaused(false), 500);
   };
 
   const offsetPx = index * stepPx;
@@ -200,6 +204,8 @@ export function TestimonialCarousel() {
         <div
           ref={viewportRef}
           className="relative overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
