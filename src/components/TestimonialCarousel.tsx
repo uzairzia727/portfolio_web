@@ -192,10 +192,6 @@ export function TestimonialCarousel() {
         <h2 className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
           Trusted by teams across the UK &amp; US
         </h2>
-        <p className="text-sm leading-relaxed text-mist/70">
-          Recent reviews from web development and AI automation engagements — spanning e-commerce,
-          full-stack delivery, agentic systems, and intelligent operations.
-        </p>
       </header>
 
       <div aria-roledescription="carousel" aria-label="Client testimonials">
