@@ -92,7 +92,6 @@ export function TestimonialCarousel() {
 
   const [index, setIndex] = useState(0);
   const [transition, setTransition] = useState(true);
-  const [paused, setPaused] = useState(false);
   const [stepPx, setStepPx] = useState(0);
 
   const touchStartX = useRef(0);
@@ -147,11 +146,12 @@ export function TestimonialCarousel() {
     setIndex(target);
   }, []);
 
+  // Strict autoplay loop with zero pausing conditions
   useEffect(() => {
-    if (paused || stepPx === 0) return;
+    if (stepPx === 0) return;
     const id = window.setInterval(next, AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [paused, next, stepPx]);
+  }, [next, stepPx]);
 
   const handleTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
     if (e.propertyName !== "transform") return;
@@ -166,7 +166,6 @@ export function TestimonialCarousel() {
     touchStartX.current = e.touches[0].clientX;
     touchDeltaX.current = 0;
     dragging.current = true;
-    setPaused(true);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
@@ -179,7 +178,6 @@ export function TestimonialCarousel() {
     dragging.current = false;
     if (touchDeltaX.current <= -SWIPE_THRESHOLD) next();
     else if (touchDeltaX.current >= SWIPE_THRESHOLD) prev();
-    window.setTimeout(() => setPaused(false), 1400);
     touchDeltaX.current = 0;
   };
 
@@ -192,6 +190,10 @@ export function TestimonialCarousel() {
         <h2 className="scroll-mt-28 font-display text-[1.6rem] leading-snug text-mist sm:text-3xl lg:text-4xl">
           Trusted by teams across the UK &amp; US
         </h2>
+        <p className="text-sm leading-relaxed text-mist/70">
+          Recent reviews from web development and AI automation engagements — spanning e-commerce,
+          full-stack delivery, agentic systems, and intelligent operations.
+        </p>
       </header>
 
       <div aria-roledescription="carousel" aria-label="Client testimonials">
