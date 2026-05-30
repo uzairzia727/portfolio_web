@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
     domain: "Web Development",
     projectScope: "Shopify storefront rebuild & migration",
     review:
-      "Uzair rebuilt our Shopify store with a clean, premium UI that finally matches our brand. Mobile conversion improved noticeably, and the migration from our old theme was seamless — zero downtime and every product page loads instantly.",
+      "Uzair rebuilt our Shopify store with a clean, premium UI that finally matches our brand. Mobile conversion improved noticeably, and the migration from our old theme was seamless with zero downtime and every product page loads instantly.",
     rating: 5,
   },
   {
@@ -56,7 +56,7 @@ export const testimonials: Testimonial[] = [
     domain: "AI / Automation",
     projectScope: "Lead enrichment & CRM workflow automation",
     review:
-      "He automated our lead enrichment flow end-to-end — custom API integrations, deduplication, and CRM sync. What used to take our team hours each morning now runs unattended, and our SDRs start every day with clean, enriched records.",
+      "He automated our lead enrichment flow end-to-end withcustom API integrations, deduplication, and CRM sync. What used to take our team hours each morning now runs unattended, and our SDRs start every day with clean, enriched records.",
     rating: 5,
   },
   {
