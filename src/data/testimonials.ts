@@ -44,7 +44,7 @@ export const testimonials: Testimonial[] = [
     domain: "AI / Automation",
     projectScope: "Multi-agent orchestration & local RAG pipeline",
     review:
-      "Uzair architected a privacy-first multi-agent system with local RAG over our internal docs. Agents coordinate tasks reliably, retrieval quality is strong, and the pipeline runs entirely on-prem — exactly what our compliance team required.",
+      "Uzair architected a privacy-first multi-agent system with local RAG over our internal docs. Agents coordinate tasks reliably, retrieval quality is strong, and the pipeline runs entirely on-prem exactly what our compliance team required.",
     rating: 5,
   },
   {
